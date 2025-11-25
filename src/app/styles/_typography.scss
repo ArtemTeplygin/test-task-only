@@ -1,0 +1,53 @@
+:root {
+  --font-family-base: 'PT Sans';
+  --font-family-heading: 'Bebas Neue';
+
+  /* font-sizes */
+  --font-size-s: 14px;
+  --font-size-m: 20px;
+  --font-size-l: 25px;
+  --font-size-xl: 56px;
+  --font-size-xxl: 200px;
+
+
+  /* line-heights */
+  --line-height-m: 1.2;
+  --line-height-l: 1.5;
+  --line-height-xl: 1.6;
+
+
+  /* font-weights */
+  --font-weight-regular: 400;
+  --font-weight-bold: 700;
+}
+
+@mixin typography($fontSize, $lineHeight, $fontWeight, $fontFamily: var(--font-family-base), $color: var(--color-accent)
+) {
+  font-size: $fontSize;
+  font-weight: $fontWeight;
+  line-height: $lineHeight;
+  font-family: $fontFamily, sans-serif;
+  color: $color;
+  margin: 0;
+}
+
+.uik-typography-h1 {
+  @include typography(var(--font-size-xl), var(--line-height-m), var(--font-weight-bold));
+}
+
+.uik-typography-display {
+  @include typography(var(--font-size-xxl), var(--line-height-xl), var(--font-weight-bold));
+}
+
+.uik-typography-heading {
+  @include typography(var(--font-size-l), var(--line-height-m), var(--font-weight-regular), var(--font-family-heading));
+}
+
+.uik-typography-body {
+  @include typography(var(--font-size-m), var(--line-height-l), var(--font-weight-regular));
+}
+
+.uik-typography-body-strong {
+  @include typography(var(--font-size-m), var(--line-height-l), var(--font-weight-bold));
+}
+
