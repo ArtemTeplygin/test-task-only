@@ -8,7 +8,7 @@ const stylelintConfig = {
     },
   ],
 
-  rules: {},
+  rules: { 'selector-class-pattern': null },
 
   ignoreFiles: ['node_modules/**', 'build/**', 'dist/**', 'coverage/**'],
 }
