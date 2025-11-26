@@ -29,7 +29,7 @@
   background-color: var(--color-accent-soft);
 }
 
-.pageInner {
+.header {
   padding: 170px 0 0 78px;
 }
 
@@ -44,9 +44,9 @@
   top: 0;
   bottom: 0;
   width: 5px;
-  background: linear-gradient(180deg, var(--color-timeline-list-date) 0%, var(--color-timeline-last-date) 100%);
-}
-
-
-.pageContent {
+  background: linear-gradient(
+    180deg,
+    var(--color-timeline-list-date) 0%,
+    var(--color-timeline-last-date) 100%
+  );
 }

@@ -1,0 +1,14 @@
+.years {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 90px;
+}
+
+.yearLeft {
+  color: var(--color-timeline-first-date);
+}
+
+.yearRight {
+  color: var(--color-timeline-last-date);
+}

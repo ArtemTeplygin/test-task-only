@@ -65,7 +65,12 @@ const config = [
         { varsIgnorePattern: '^_', argsIgnorePattern: '^_' },
       ],
 
-      'prettier/prettier': 'error',
+      'prettier/prettier': [
+        'error',
+        {
+          endOfLine: 'lf',
+        },
+      ],
 
       'import/order': [
         'error',
@@ -79,8 +84,8 @@ const config = [
             'type',
           ],
           pathGroups: [
-            { pattern: 'components/**', group: 'internal', position: 'before' },
-            { pattern: 'styles/**', group: 'internal', position: 'before' },
+            { pattern: 'common/**', group: 'internal', position: 'before' },
+            { pattern: 'features/**', group: 'internal', position: 'before' },
           ],
           pathGroupsExcludedImportTypes: ['builtin'],
           'newlines-between': 'always',

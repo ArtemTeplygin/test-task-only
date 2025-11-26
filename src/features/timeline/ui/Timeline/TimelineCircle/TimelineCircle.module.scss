@@ -1,0 +1,72 @@
+.circleWrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.circle {
+  position: relative;
+  width: 536px;
+  height: 530px;
+  border-radius: 50%;
+  border: 1px solid var(--color-timeline-circle);
+}
+
+.pointWrapper {
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+
+.pointDot {
+  display: block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--color-accent);
+  pointer-events: none;
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
+
+.pointPopup {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.6);
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
+
+.pointCategory {
+  position: absolute;
+  top: 50%;
+  left: calc(100% + 20px); // отступ от кнопки
+  transform: translateY(-50%);
+}
+
+.pointWrapperActive .pointDot {
+  opacity: 0;
+  transform: scale(0.4);
+}
+
+.pointWrapper:hover .pointDot {
+  opacity: 0;
+  transform: scale(0.4);
+}
+
+.pointWrapperActive .pointPopup {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.pointWrapper:hover .pointPopup {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1);
+}
