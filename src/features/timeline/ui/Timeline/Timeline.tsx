@@ -2,6 +2,7 @@ import { useState } from 'react'
 
 import { timeLineData } from 'features/timeline/model'
 
+import { AnimatedYear } from './AnimatedYear/AnimatedYear'
 import s from './Timeline.module.scss'
 import { TimelineCircle } from './TimelineCircle/TimelineCircle'
 
@@ -12,8 +13,14 @@ export const Timeline = () => {
   return (
     <section>
       <div className={s.years}>
-        <span className={`${s.yearLeft} uik-typography-display`}>{activeSlide.leftYear}</span>
-        <span className={`${s.yearRight} uik-typography-display`}>{activeSlide.rightYear}</span>
+        <AnimatedYear
+          value={activeSlide.leftYear}
+          className={`${s.yearLeft} uik-typography-display`}
+        />
+        <AnimatedYear
+          value={activeSlide.rightYear}
+          className={`${s.yearRight} uik-typography-display`}
+        />
       </div>
 
       <TimelineCircle
@@ -21,7 +28,6 @@ export const Timeline = () => {
         activeIndex={activeIndex}
         onChangeIndex={setActiveIndex}
       />
-      {/* <TimelineEventsList events={activeSlide.events} onSlideChange={setActiveIndex} /> */}
     </section>
   )
 }
