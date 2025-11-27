@@ -4,7 +4,7 @@
   align-items: center;
   cursor: pointer;
   color: var(--color-accent);
-  background-color: var(--color-bg-surface);
+  background-color: var(--color-bg-white);
 
   &.small {
     width: 40px;
@@ -20,4 +20,9 @@
     width: 56px;
     height: 56px;
   }
+}
+
+.button:disabled {
+  opacity: 0.4;
+  cursor: default;
 }

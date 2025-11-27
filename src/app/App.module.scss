@@ -7,46 +7,7 @@
   border-right: 1px solid var(--color-accent-soft);
 }
 
-.page::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-0.5px);
-  width: 1px;
-  background-color: var(--color-accent-soft);
-}
-
-.page::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-0.5px);
-  height: 1px;
-  background-color: var(--color-accent-soft);
-}
-
-.header {
-  padding: 170px 0 0 78px;
-}
-
-.heading {
+.pageInner {
   position: relative;
-}
-
-.heading::before {
-  content: '';
-  position: absolute;
-  left: -78px;
-  top: 0;
-  bottom: 0;
-  width: 5px;
-  background: linear-gradient(
-    180deg,
-    var(--color-timeline-list-date) 0%,
-    var(--color-timeline-last-date) 100%
-  );
+  min-height: 100vh;
 }

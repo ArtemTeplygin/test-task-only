@@ -1,5 +1,6 @@
 import clsx from 'clsx'
-import { useState } from 'react'
+import gsap from 'gsap'
+import { useEffect, useRef, useState } from 'react'
 import { Navigation } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
@@ -18,8 +19,41 @@ type Props = {
 
 export const TimelineEventsList = ({ events }: Props) => {
   const slidesPerView = 3
+
   const [isBeginning, setIsBeginning] = useState<boolean>(true)
   const [isEnd, setIsEnd] = useState(events.length <= slidesPerView)
+
+  const [renderedEvents, setRenderedEvents] = useState(events)
+
+  const containerRef = useRef<HTMLDivElement | null>(null)
+
+  useEffect(() => {
+    const element = containerRef.current
+
+    if (!element) {
+      setRenderedEvents(events)
+      return
+    }
+
+    if (renderedEvents === events) return
+
+    const tween = gsap.to(element, {
+      opacity: 0,
+      duration: 0.55,
+      onComplete: () => {
+        setRenderedEvents(events)
+
+        gsap.to(element, {
+          opacity: 1,
+          duration: 0.25,
+        })
+      },
+    })
+
+    return () => {
+      tween.kill()
+    }
+  }, [events, renderedEvents])
 
   const updateEdges = (swiper: SwiperType) => {
     setIsBeginning(swiper.isBeginning)
@@ -27,7 +61,7 @@ export const TimelineEventsList = ({ events }: Props) => {
   }
 
   return (
-    <div>
+    <div ref={containerRef}>
       <div className={s.slider}>
         <Button
           title='<'
@@ -47,11 +81,11 @@ export const TimelineEventsList = ({ events }: Props) => {
           onSwiper={updateEdges}
           onSlideChange={updateEdges}
         >
-          {events.map((event) => (
+          {renderedEvents.map((event) => (
             <SwiperSlide key={event.year}>
               <article className={s.card}>
-                <h3 className={'uik-typography-heading'}>{event.year}</h3>
-                <p className={'uik-typography-body'}>{event.text}</p>
+                <h3 className='uik-typography-heading'>{event.year}</h3>
+                <p className='uik-typography-body'>{event.text}</p>
               </article>
             </SwiperSlide>
           ))}

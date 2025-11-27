@@ -3,6 +3,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  z-index: 3;
 }
 
 .circle {
@@ -40,12 +41,16 @@
   transition:
     opacity 0.25s ease,
     transform 0.25s ease;
+
+  button {
+    background-color: var(--color-bg-surface);
+  }
 }
 
 .pointCategory {
   position: absolute;
   top: 50%;
-  left: calc(100% + 20px); // отступ от кнопки
+  left: calc(100% + 20px);
   transform: translateY(-50%);
 }
 

@@ -60,3 +60,7 @@
 .uik-typography-body-strong {
   @include typography(var(--font-size-m), var(--line-height-m), var(--font-weight-bold));
 }
+
+.uik-typography-caption {
+  @include typography(var(--font-size-s), var(--line-height-s), var(--font-weight-regular));
+}

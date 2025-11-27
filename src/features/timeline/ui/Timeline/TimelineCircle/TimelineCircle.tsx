@@ -41,7 +41,7 @@ export const TimelineCircle = (props: Props) => {
     return () => {
       tween.kill()
     }
-  }, [activeIndex])
+  }, [activeIndex, rotationDeg, timeLineData.length])
 
   const rotationRad = (rotationDeg * Math.PI) / 180
   const categoryClassName = `uik-typography-body-strong ${s.pointCategory}`
@@ -70,7 +70,7 @@ export const TimelineCircle = (props: Props) => {
               <span className={s.pointDot} />
 
               <div className={s.pointPopup}>
-                <Button title={String(index + 1)} size='medium' />
+                <Button title={String(index + 1)} size='large' />
                 <span className={categoryClassName}>{slide.category}</span>
               </div>
             </div>
