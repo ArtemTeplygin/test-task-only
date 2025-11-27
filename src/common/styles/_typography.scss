@@ -10,7 +10,8 @@
   --font-size-xxl: 200px;
 
   /* line-heights */
-  --line-height-m: 1.2;
+  --line-height-s: 1.2;
+  --line-height-m: 1.3;
   --line-height-l: 1.5;
   --line-height-xl: 1.6;
 
@@ -24,17 +25,18 @@
   $lineHeight,
   $fontWeight,
   $fontFamily: var(--font-family-base),
-
+  $color: var(--color-accent)
 ) {
   font-size: $fontSize;
   font-weight: $fontWeight;
   line-height: $lineHeight;
   font-family: $fontFamily, sans-serif;
+  color: $color;
   margin: 0;
 }
 
 .uik-typography-h1 {
-  @include typography(var(--font-size-xl), var(--line-height-m), var(--font-weight-bold));
+  @include typography(var(--font-size-xl), var(--line-height-s), var(--font-weight-bold));
 }
 
 .uik-typography-display {
@@ -43,10 +45,11 @@
 
 .uik-typography-heading {
   @include typography(
-                  var(--font-size-l),
-                  var(--line-height-m),
-                  var(--font-weight-regular),
-                  var(--font-family-heading)
+    var(--font-size-l),
+    var(--line-height-s),
+    var(--font-weight-regular),
+    var(--font-family-heading),
+    var(--color-timeline-list-date)
   );
 }
 
@@ -55,5 +58,5 @@
 }
 
 .uik-typography-body-strong {
-  @include typography(var(--font-size-m), var(--line-height-l), var(--font-weight-bold));
+  @include typography(var(--font-size-m), var(--line-height-m), var(--font-weight-bold));
 }

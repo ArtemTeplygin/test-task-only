@@ -1,4 +1,4 @@
-type TimelineEvent = {
+export type TimelineEvent = {
   year: string
   text: string
 }

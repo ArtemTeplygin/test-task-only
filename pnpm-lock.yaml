@@ -17,10 +17,10 @@ importers:
         specifier: 19.2.3
         version: 19.2.3(@types/react@19.2.6)
       clsx:
-        specifier: ^2.1.1
+        specifier: 2.1.1
         version: 2.1.1
       gsap:
-        specifier: ^3.13.0
+        specifier: 3.13.0
         version: 3.13.0
       react:
         specifier: 19.2.0
@@ -31,12 +31,15 @@ importers:
       react-scripts:
         specifier: 5.0.1
         version: 5.0.1(@babel/plugin-syntax-flow@7.27.1(@babel/core@7.28.5))(@babel/plugin-transform-react-jsx@7.27.1(@babel/core@7.28.5))(@types/babel__core@7.20.5)(eslint-import-resolver-typescript@4.4.4)(eslint@8.57.0)(react@19.2.0)(sass@1.94.2)(type-fest@0.21.3)(typescript@4.9.5)
+      swiper:
+        specifier: ^12.0.3
+        version: 12.0.3
       typescript:
         specifier: 4.9.5
         version: 4.9.5
     devDependencies:
       '@eslint/js':
-        specifier: ^9.39.1
+        specifier: 9.39.1
         version: 9.39.1
       eslint:
         specifier: 8.57.0
@@ -72,7 +75,7 @@ importers:
         specifier: 3.6.2
         version: 3.6.2
       sass:
-        specifier: ^1.94.2
+        specifier: 1.94.2
         version: 1.94.2
       stylelint:
         specifier: 16.26.0
@@ -9263,6 +9266,13 @@ packages:
     engines: { node: '>=10.13.0' }
     hasBin: true
 
+  swiper@12.0.3:
+    resolution:
+      {
+        integrity: sha512-BHd6U1VPEIksrXlyXjMmRWO0onmdNPaTAFduzqR3pgjvi7KfmUCAm/0cj49u2D7B0zNjMw02TSeXfinC1hDCXg==,
+      }
+    engines: { node: '>= 4.7.0' }
+
   symbol-tree@3.2.4:
     resolution:
       {
@@ -16685,6 +16695,8 @@ snapshots:
       csso: 4.2.0
       picocolors: 1.1.1
       stable: 0.1.8
+
+  swiper@12.0.3: {}
 
   symbol-tree@3.2.4: {}
 

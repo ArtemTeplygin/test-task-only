@@ -1,5 +1,5 @@
 import gsap from 'gsap'
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import { Button } from 'common/components/Button'
 
@@ -70,7 +70,7 @@ export const TimelineCircle = (props: Props) => {
               <span className={s.pointDot} />
 
               <div className={s.pointPopup}>
-                <Button title={String(index + 1)} size="medium" />
+                <Button title={String(index + 1)} size='medium' />
                 <span className={categoryClassName}>{slide.category}</span>
               </div>
             </div>

@@ -1,2 +1,2 @@
 export { timeLineData } from './timelineData'
-export type { TimelineSlide } from './types'
+export type { TimelineSlide, TimelineEvent } from './types'

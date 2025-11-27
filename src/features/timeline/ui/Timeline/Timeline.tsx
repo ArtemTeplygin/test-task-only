@@ -5,6 +5,7 @@ import { timeLineData } from 'features/timeline/model'
 import { AnimatedYear } from './AnimatedYear/AnimatedYear'
 import s from './Timeline.module.scss'
 import { TimelineCircle } from './TimelineCircle/TimelineCircle'
+import { TimelineEventsList } from './TimelineEventsList/TimelineEventsList'
 
 export const Timeline = () => {
   const [activeIndex, setActiveIndex] = useState<number>(0)
@@ -28,6 +29,7 @@ export const Timeline = () => {
         activeIndex={activeIndex}
         onChangeIndex={setActiveIndex}
       />
+      <TimelineEventsList events={activeSlide.events} />
     </section>
   )
 }
