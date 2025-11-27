@@ -41,7 +41,7 @@ export const TimelineCircle = (props: Props) => {
     return () => {
       tween.kill()
     }
-  }, [activeIndex, rotationDeg, timeLineData.length])
+  }, [activeIndex])
 
   const rotationRad = (rotationDeg * Math.PI) / 180
   const categoryClassName = `uik-typography-body-strong ${s.pointCategory}`

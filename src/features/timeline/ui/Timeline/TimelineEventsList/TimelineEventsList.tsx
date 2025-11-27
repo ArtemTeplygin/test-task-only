@@ -1,10 +1,11 @@
 import clsx from 'clsx'
 import gsap from 'gsap'
 import { useEffect, useRef, useState } from 'react'
-import { Navigation } from 'swiper/modules'
+import { Navigation, Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
 import 'swiper/css'
+
 import { Button } from 'common/components/Button'
 
 import { TimelineEvent } from 'features/timeline/model'
@@ -18,18 +19,17 @@ type Props = {
 }
 
 export const TimelineEventsList = ({ events }: Props) => {
-  const slidesPerView = 3
-
-  const [isBeginning, setIsBeginning] = useState<boolean>(true)
-  const [isEnd, setIsEnd] = useState(events.length <= slidesPerView)
+  const slidesPerViewDesktop = 3
+  const [isBeginning, setIsBeginning] = useState(true)
+  const [isEnd, setIsEnd] = useState(events.length <= slidesPerViewDesktop)
 
   const [renderedEvents, setRenderedEvents] = useState(events)
 
   const containerRef = useRef<HTMLDivElement | null>(null)
+  const swiperRef = useRef<SwiperType | null>(null)
 
   useEffect(() => {
     const element = containerRef.current
-
     if (!element) {
       setRenderedEvents(events)
       return
@@ -42,11 +42,7 @@ export const TimelineEventsList = ({ events }: Props) => {
       duration: 0.55,
       onComplete: () => {
         setRenderedEvents(events)
-
-        gsap.to(element, {
-          opacity: 1,
-          duration: 0.25,
-        })
+        gsap.to(element, { opacity: 1, duration: 0.25 })
       },
     })
 
@@ -61,28 +57,37 @@ export const TimelineEventsList = ({ events }: Props) => {
   }
 
   return (
-    <div ref={containerRef}>
+    <div ref={containerRef} className={s.timelineEvents}>
       <div className={s.slider}>
         <Button
           title='<'
           size='small'
           className={clsx(s.navPrev, { [s.navHidden]: isBeginning })}
+          onClick={() => swiperRef.current?.slidePrev()}
         />
 
         <Swiper
           className={s.swiper}
-          modules={[Navigation]}
-          navigation={{
-            prevEl: `.${s.navPrev}`,
-            nextEl: `.${s.navNext}`,
+          modules={[Navigation, Pagination]}
+          navigation={{ prevEl: `.${s.navPrev}`, nextEl: `.${s.navNext}` }}
+          breakpoints={{
+            0: { slidesPerView: 2, spaceBetween: 25 },
+            768: { slidesPerView: slidesPerViewDesktop, spaceBetween: 80 },
           }}
-          slidesPerView={slidesPerView}
-          spaceBetween={80}
-          onSwiper={updateEdges}
+          pagination={{
+            el: '.js-timeline-events-pagination',
+            clickable: true,
+            bulletClass: s.bullet,
+            bulletActiveClass: s.bulletActive,
+          }}
+          onSwiper={(swiper: SwiperType) => {
+            swiperRef.current = swiper
+            updateEdges(swiper)
+          }}
           onSlideChange={updateEdges}
         >
           {renderedEvents.map((event) => (
-            <SwiperSlide key={event.year}>
+            <SwiperSlide key={event.year} className={s.slide}>
               <article className={s.card}>
                 <h3 className='uik-typography-heading'>{event.year}</h3>
                 <p className='uik-typography-body'>{event.text}</p>
@@ -91,8 +96,15 @@ export const TimelineEventsList = ({ events }: Props) => {
           ))}
         </Swiper>
 
-        <Button title='>' size='small' className={clsx(s.navNext, { [s.navHidden]: isEnd })} />
+        <Button
+          title='>'
+          size='small'
+          className={clsx(s.navNext, { [s.navHidden]: isEnd })}
+          onClick={() => swiperRef.current?.slideNext()}
+        />
       </div>
+
+      <div className={clsx('js-timeline-events-pagination', s.dots)} />
     </div>
   )
 }

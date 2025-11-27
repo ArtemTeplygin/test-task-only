@@ -1,3 +1,5 @@
+@import 'common/styles/breakpoints';
+
 .page {
   position: relative;
   min-height: 100vh;
@@ -10,4 +12,13 @@
 .pageInner {
   position: relative;
   min-height: 100vh;
+}
+
+@media (max-width: $mobile) {
+  .page {
+    max-width: 320px;
+    min-height: 568px;
+    margin: 0;
+    box-sizing: border-box;
+  }
 }

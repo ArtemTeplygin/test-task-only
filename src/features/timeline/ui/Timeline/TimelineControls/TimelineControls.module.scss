@@ -1,3 +1,5 @@
+@import 'common/styles/breakpoints';
+
 .timelineControls {
   margin: 70px 0 0 80px;
   display: flex;
@@ -8,4 +10,15 @@
 .timelineControlsButtons {
   display: flex;
   gap: 20px;
+}
+
+@media (max-width: $mobile) {
+  .timelineControls {
+    margin: 0;
+    gap: 10px;
+  }
+
+  .timelineControlsButtons {
+    gap: 8px;
+  }
 }

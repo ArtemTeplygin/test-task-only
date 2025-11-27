@@ -4,6 +4,7 @@
 
   /* font-sizes */
   --font-size-s: 14px;
+  --font-size-mobile-s: 16px;
   --font-size-m: 20px;
   --font-size-l: 25px;
   --font-size-xl: 56px;
@@ -63,4 +64,28 @@
 
 .uik-typography-caption {
   @include typography(var(--font-size-s), var(--line-height-s), var(--font-weight-regular));
+}
+
+@media (width <= 768px) {
+  .uik-typography-h1 {
+    @include typography(var(--font-size-m), var(--line-height-s), var(--font-weight-bold));
+  }
+
+  .uik-typography-display {
+    @include typography(var(--font-size-xl), var(--line-height-s), var(--font-weight-bold));
+  }
+
+  .uik-typography-heading {
+    @include typography(
+      var(--font-size-mobile-s),
+      var(--line-height-s),
+      var(--font-weight-regular),
+      var(--font-family-heading),
+      var(--color-timeline-list-date)
+    );
+  }
+
+  .uik-typography-body {
+    @include typography(var(--font-size-s), var(--line-height-l), var(--font-weight-regular));
+  }
 }

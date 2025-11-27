@@ -1,3 +1,5 @@
+@import 'common/styles/breakpoints';
+
 .button {
   border-radius: 50%;
   border: 1px solid var(--color-control-border);
@@ -25,4 +27,13 @@
 .button:disabled {
   opacity: 0.4;
   cursor: default;
+}
+
+@media (max-width: $mobile) {
+  .button {
+    &.medium {
+      width: 25px;
+      height: 25px;
+    }
+  }
 }
