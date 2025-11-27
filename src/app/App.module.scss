@@ -4,21 +4,19 @@
   position: relative;
   min-height: 100vh;
   margin: 0 160px 0 320px;
-  max-width: 1920px;
   border-left: 1px solid var(--color-accent-soft);
   border-right: 1px solid var(--color-accent-soft);
-}
 
-.pageInner {
-  position: relative;
-  min-height: 100vh;
-}
+  .pageInner {
+    max-width: 1920px;
+    position: relative;
+  }
 
-@media (max-width: $mobile) {
-  .page {
-    max-width: 320px;
-    min-height: 568px;
-    margin: 0;
+  @media (max-width: $mobile) {
+    max-width: 768px;
+    min-height: auto;
+    margin: 60px 20px 13px;
     box-sizing: border-box;
+    border: none;
   }
 }

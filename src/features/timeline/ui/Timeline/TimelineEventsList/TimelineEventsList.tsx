@@ -20,8 +20,6 @@ type Props = {
 
 export const TimelineEventsList = ({ events }: Props) => {
   const slidesPerViewDesktop = 3
-  const [isBeginning, setIsBeginning] = useState(true)
-  const [isEnd, setIsEnd] = useState(events.length <= slidesPerViewDesktop)
 
   const [renderedEvents, setRenderedEvents] = useState(events)
 
@@ -51,25 +49,20 @@ export const TimelineEventsList = ({ events }: Props) => {
     }
   }, [events, renderedEvents])
 
-  const updateEdges = (swiper: SwiperType) => {
-    setIsBeginning(swiper.isBeginning)
-    setIsEnd(swiper.isEnd)
-  }
-
   return (
-    <div ref={containerRef} className={s.timelineEvents}>
-      <div className={s.slider}>
-        <Button
-          title='<'
-          size='small'
-          className={clsx(s.navPrev, { [s.navHidden]: isBeginning })}
-          onClick={() => swiperRef.current?.slidePrev()}
-        />
+    <div className={s.timelineEvents}>
+      <div ref={containerRef} className={s.slider}>
+        <Button size='small' className={s.navPrev}>
+          {'<'}
+        </Button>
 
         <Swiper
           className={s.swiper}
           modules={[Navigation, Pagination]}
-          navigation={{ prevEl: `.${s.navPrev}`, nextEl: `.${s.navNext}` }}
+          navigation={{
+            prevEl: `.${s.navPrev}`,
+            nextEl: `.${s.navNext}`,
+          }}
           breakpoints={{
             0: { slidesPerView: 2, spaceBetween: 25 },
             768: { slidesPerView: slidesPerViewDesktop, spaceBetween: 80 },
@@ -82,26 +75,21 @@ export const TimelineEventsList = ({ events }: Props) => {
           }}
           onSwiper={(swiper: SwiperType) => {
             swiperRef.current = swiper
-            updateEdges(swiper)
           }}
-          onSlideChange={updateEdges}
         >
           {renderedEvents.map((event) => (
             <SwiperSlide key={event.year} className={s.slide}>
               <article className={s.card}>
-                <h3 className='uik-typography-heading'>{event.year}</h3>
-                <p className='uik-typography-body'>{event.text}</p>
+                <h3 className='text-heading'>{event.year}</h3>
+                <p className='text-body'>{event.text}</p>
               </article>
             </SwiperSlide>
           ))}
         </Swiper>
 
-        <Button
-          title='>'
-          size='small'
-          className={clsx(s.navNext, { [s.navHidden]: isEnd })}
-          onClick={() => swiperRef.current?.slideNext()}
-        />
+        <Button size='small' className={s.navNext}>
+          {'>'}
+        </Button>
       </div>
 
       <div className={clsx('js-timeline-events-pagination', s.dots)} />

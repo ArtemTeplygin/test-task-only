@@ -15,8 +15,8 @@ export const Timeline = () => {
 
   return (
     <section className={s.timeline}>
-      <header>
-        <h2 className={`${s.heading} uik-typography-h1`}>
+      <header className={s.header}>
+        <h2 className={`${s.heading} text-h1`}>
           Исторические
           <br /> даты
         </h2>
@@ -24,14 +24,8 @@ export const Timeline = () => {
 
       <div className={s.timelineTop}>
         <div className={s.years}>
-          <AnimatedYear
-            value={activeSlide.leftYear}
-            className={`${s.yearLeft} uik-typography-display`}
-          />
-          <AnimatedYear
-            value={activeSlide.rightYear}
-            className={`${s.yearRight} uik-typography-display`}
-          />
+          <AnimatedYear value={activeSlide.leftYear} className={`${s.yearLeft} text-display`} />
+          <AnimatedYear value={activeSlide.rightYear} className={`${s.yearRight} text-display`} />
         </div>
 
         <TimelineCircle

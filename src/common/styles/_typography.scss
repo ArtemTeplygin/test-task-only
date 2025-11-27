@@ -36,15 +36,15 @@
   margin: 0;
 }
 
-.uik-typography-h1 {
+.text-h1 {
   @include typography(var(--font-size-xl), var(--line-height-s), var(--font-weight-bold));
 }
 
-.uik-typography-display {
+.text-display {
   @include typography(var(--font-size-xxl), var(--line-height-xl), var(--font-weight-bold));
 }
 
-.uik-typography-heading {
+.text-heading {
   @include typography(
     var(--font-size-l),
     var(--line-height-s),
@@ -54,28 +54,28 @@
   );
 }
 
-.uik-typography-body {
+.text-body {
   @include typography(var(--font-size-m), var(--line-height-l), var(--font-weight-regular));
 }
 
-.uik-typography-body-strong {
+.text-body-strong {
   @include typography(var(--font-size-m), var(--line-height-m), var(--font-weight-bold));
 }
 
-.uik-typography-caption {
+.text-caption {
   @include typography(var(--font-size-s), var(--line-height-s), var(--font-weight-regular));
 }
 
 @media (width <= 768px) {
-  .uik-typography-h1 {
+  .text-h1 {
     @include typography(var(--font-size-m), var(--line-height-s), var(--font-weight-bold));
   }
 
-  .uik-typography-display {
+  .text-display {
     @include typography(var(--font-size-xl), var(--line-height-s), var(--font-weight-bold));
   }
 
-  .uik-typography-heading {
+  .text-heading {
     @include typography(
       var(--font-size-mobile-s),
       var(--line-height-s),
@@ -85,7 +85,7 @@
     );
   }
 
-  .uik-typography-body {
+  .text-body {
     @include typography(var(--font-size-s), var(--line-height-l), var(--font-weight-regular));
   }
 }

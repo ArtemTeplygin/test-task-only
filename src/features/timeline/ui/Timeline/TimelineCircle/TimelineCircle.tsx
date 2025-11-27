@@ -1,3 +1,4 @@
+import clsx from 'clsx'
 import gsap from 'gsap'
 import { useEffect, useState } from 'react'
 
@@ -44,7 +45,7 @@ export const TimelineCircle = (props: Props) => {
   }, [activeIndex])
 
   const rotationRad = (rotationDeg * Math.PI) / 180
-  const categoryClassName = `uik-typography-body-strong ${s.pointCategory}`
+  const categoryClassName = `text-body-strong ${s.pointCategory}`
 
   return (
     <div className={s.circleWrapper}>
@@ -56,9 +57,7 @@ export const TimelineCircle = (props: Props) => {
           const left = 50 + Math.cos(angle) * radiusPercent
           const isActive = index === activeIndex
 
-          const wrapperClassName = isActive
-            ? `${s.pointWrapper} ${s.pointWrapperActive}`
-            : s.pointWrapper
+          const wrapperClassName = clsx(s.pointWrapper, { [s.pointWrapperActive]: isActive })
 
           return (
             <div
@@ -70,7 +69,7 @@ export const TimelineCircle = (props: Props) => {
               <span className={s.pointDot} />
 
               <div className={s.pointPopup}>
-                <Button title={String(index + 1)} size='large' />
+                <Button size='large'>{String(index + 1)}</Button>
                 <span className={categoryClassName}>{slide.category}</span>
               </div>
             </div>

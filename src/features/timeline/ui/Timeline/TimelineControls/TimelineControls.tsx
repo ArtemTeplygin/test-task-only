@@ -18,13 +18,17 @@ export const TimelineControls = (props: Props) => {
 
   return (
     <div className={s.timelineControls}>
-      <span className={'uik-typography-caption'}>
+      <span className={'text-caption'}>
         {current}/{all}
       </span>
 
       <div className={s.timelineControlsButtons}>
-        <Button title='<' size='medium' onClick={onPrev} disabled={isFirst} />
-        <Button title='>' size='medium' onClick={onNext} disabled={isLast} />
+        <Button size='medium' onClick={onPrev} disabled={isFirst}>
+          {'<'}
+        </Button>
+        <Button size='medium' onClick={onNext} disabled={isLast}>
+          {'>'}
+        </Button>
       </div>
     </div>
   )

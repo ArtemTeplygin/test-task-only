@@ -1,5 +1,5 @@
 export type TimelineEvent = {
-  year: string
+  year: number
   text: string
 }
 

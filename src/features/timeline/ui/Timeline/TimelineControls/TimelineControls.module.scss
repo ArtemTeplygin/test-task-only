@@ -5,20 +5,18 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
-}
-
-.timelineControlsButtons {
-  display: flex;
-  gap: 20px;
-}
-
-@media (max-width: $mobile) {
-  .timelineControls {
-    margin: 0;
-    gap: 10px;
-  }
 
   .timelineControlsButtons {
-    gap: 8px;
+    display: flex;
+    gap: 20px;
+  }
+
+  @media (max-width: $mobile) {
+    margin: 0;
+    gap: 10px;
+
+    .timelineControlsButtons {
+      gap: 8px;
+    }
   }
 }

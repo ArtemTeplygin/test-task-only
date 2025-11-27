@@ -22,15 +22,13 @@
     width: 56px;
     height: 56px;
   }
-}
 
-.button:disabled {
-  opacity: 0.4;
-  cursor: default;
-}
+  &:disabled {
+    opacity: 0.4;
+    cursor: default;
+  }
 
-@media (max-width: $mobile) {
-  .button {
+  @media (max-width: $mobile) {
     &.medium {
       width: 25px;
       height: 25px;
