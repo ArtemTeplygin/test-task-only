@@ -23,39 +23,39 @@ npm install -g pnpm
 
 1. Клонировать репозиторий
    git clone https://github.com/artemteplygin/test-task-only.git
-   cd test-task-only
+   
 
 2. Установить зависимости
 
 По умолчанию пример для pnpm:
 
-pnpm install
+`pnpm install`
 
 Если вы предпочитаете другой менеджер пакетов, используйте:
 
-c npm:
+1) c npm:
 
-npm install
+`npm install`
 
-с Yarn:
+2) с Yarn:
 
-yarn
+`yarn`
 
 3. Запустить dev-сервер
 
 С использованием pnpm:
 
-pnpm start
+`pnpm start`
 
 Аналогично:
 
-с npm:
+1)с npm:
 
-npm start
+`npm start`
 
-с Yarn:
+2)с Yarn:
 
-yarn start
+`yarn start`
 
 После успешного запуска приложение будет доступно по адресу:
 
