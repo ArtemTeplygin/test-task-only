@@ -1,46 +1,62 @@
-# Getting Started with Create React Index
+## Готовая версия
 
-This project was bootstrapped with [Create React Index](https://github.com/facebook/create-react-app).
+Проект можно посмотреть без установки и запуска локально:
 
-## Available Scripts
+👉 https://artemteplygin.github.io/test-task-only/
 
-In the project directory, you can run:
+## Требования
 
-### `npm start`
+Перед запуском убедитесь, что у вас установлено:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- **Node.js** версии **18** или выше
+- Один из менеджеров пакетов:
+    - **pnpm** ≥ 9 (рекомендуется)
+    - или **npm**
+    - или **Yarn**
+- **Git**
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Установка pnpm (при необходимости):
 
-### `npm test`
+npm install -g pnpm
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Как запустить проект локально
 
-### `npm run build`
+1. Клонировать репозиторий
+   git clone https://github.com/artemteplygin/test-task-only.git
+   cd test-task-only
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. Установить зависимости
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+По умолчанию пример для pnpm:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+pnpm install
 
-### `npm run eject`
+Если вы предпочитаете другой менеджер пакетов, используйте:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+c npm:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+npm install
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+с Yarn:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+yarn
 
-## Learn More
+3. Запустить dev-сервер
 
-You can learn more in the [Create React Index documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+С использованием pnpm:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+pnpm start
+
+Аналогично:
+
+с npm:
+
+npm start
+
+с Yarn:
+
+yarn start
+
+После успешного запуска приложение будет доступно по адресу:
+
+http://localhost:3000
